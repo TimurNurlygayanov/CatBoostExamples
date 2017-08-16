@@ -31,6 +31,9 @@ model = CatBoostClassifier(iterations=1000, thread_count=16,
 # Train the model using prepared right data:
 model.fit(train_data, train_label, verbose=True)
 
+# Save the model and restore model from file:
+model.save_model('catboost_model.dump')
+model.load_model('catboost_model.dump')
 
 # Make the prediction using the resulting model
 preds_class = model.predict(test_data)
